@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopVira</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/animate.min.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="./assets/images/icon-192.png" type="image/x-icon">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+    integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+  <script src="./scripts/dexie.min.js"></script>
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <!-- header page -->
+    <div class="header-section">
+      <div class="header__container">
+
+        <h3 class="animate__animated animate__bounceInRight">Welcome Giver</h3>
+      </div>
+      <div class="input-section">
+        <div class="__container">
+          <h4 id="text-settings"><i class="fa fa-wrench" aria-hidden="true"></i>
+            Settings</h4>
+        </div>
+        <div class="__container">
+
+        </div>
+        <div class="__container">
+          <button type="submit" id="myBtn"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create new list</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- End of header Page -->
+  </header>
+  <header>
+    <!-- header page -->
+    <div class="mini-header-section">
+      <div class="text-section">
+        <div class="__container">
+          <h4 class="animate__animated animate__bounceInRight"> 13 list </h4>
+
+        </div>
+        <div class="__container">
+          <h4 class="animate__animated animate__bounceInRight"> 2 complete</h4>
+
+        </div>
+        <div class="__container">
+          <h4 class="animate__animated animate__bounceInRight">Delete a list</h4>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">x</span>
+        <div class="input-section">
+          <div class="__container">
+            <input type="text" placeholder="price" id="input-price">
+          </div>
+          <div class="__container">
+            <input type="text" placeholder="quantity" id="input-quantity">
+          </div>
+          <div class="__container">
+            <button type="submit" id="myBtn">Create list</button>
+            <!-- Trigger/Open The Modal -->
+            <!-- <button id="myBtn">Open Modal</button> -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- End of header Page -->
+  </header>
+  <main>
+    <section id="list-section">
+      <div class="list-container">
+
+      </div>
+    </section>
+
+  </main>
+  <footer>
+
+  </footer>
+  <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  </div>
+  <script type="module" src="./scripts/main.js"></script>
+  <script type="module" src="./scripts/databaseFunctions.js"></script>
+</body>
+
+</html>
